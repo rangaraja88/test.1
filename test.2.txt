@@ -1,0 +1,181 @@
+CREATE TABLE mytable
+(
+ id int unsigned NOT NULL auto_increment,
+ username varchar(100) NOT NULL,
+ email varchar(100) NOT NULL,
+ PRIMARY KEY (id)
+);
+INSERT INTO mytable ( username, email )
+VALUES ( "durgadevi", "durgakannan@gmail.com" );
+insert into mytable values ("2","babu","babu@gmail.com");
+insert into mytable values ("3","thambo","thamboo@gmail.com");
+insert into mytable values ("4","monkey","monkey@gmail.com");
+insert into mytable values ("5","kannan","kannan@gmail.com");
+insert into mytable values ("6","sandiya","sandiya@gmail.com");
+insert into mytable values ("7","kowusi","kowusi@gmail.com");
+insert into mytable values ("8","bagu","bagu@gmail.com");
+insert into mytable values ("9","bali","bali@gmail.com");
+select * from mytable;
+INSERT INTO mytable ( username, email )
+VALUES ( 'rajuboy', 'rajuboy@gmail.com' );
+
+UPDATE mytable SET username="king" WHERE id=8
+DELETE FROM mytable WHERE id=9
+
+SELECT * FROM mytable WHERE username = "king";
+use raju;
+SHOW databases;
+SHOW tables;
+DESCRIBE raju.student_mark_sheet;
+DESCRIBE employee;
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'some_password';
+CREATE TABLE `roopa`
+( 
+ `first name` VARCHAR(30)
+);
+insert into roopa values('raja');
+insert into roopa values('gogul');
+SELECT ID, USER, HOST, DB, COMMAND,
+TIME as time_seconds,
+ROUND(TIME / 60, 2) as time_minutes,
+ROUND(TIME / 60 / 60, 2) as time_hours,
+STATE, INFO
+FROM information_schema.PROCESSLIST ORDER BY INFO DESC, TIME DESC;
+SELECT * FROM information_schema.ROUTINES WHERE ROUTINE_DEFINITION LIKE '%word%';
+select '123' * 2;
+select '123ABC' * 2
+select 'ABC123' * 2;
+ 
+ CREATE TABLE `car`
+( `car_id` INT UNSIGNED NOT NULL PRIMARY KEY,
+ `name` VARCHAR(20),
+ `price` DECIMAL(8,2)
+);
+
+INSERT INTO CAR (`car_id`, `name`, `price`) VALUES (1, 'Audi A1', '20000');
+INSERT INTO CAR (`car_id`, `name`, `price`) VALUES (2, 'Audi A1', '15000');
+INSERT INTO CAR (`car_id`, `name`, `price`) VALUES (3, 'Audi A2', '40000');
+INSERT INTO CAR (`car_id`, `name`, `price`) VALUES (4, 'Audi A2', '40000');
+SELECT DISTINCT `name`, `price` FROM CAR;
+ 
+ CREATE TABLE stack(
+ id INT,
+ username VARCHAR(30) NOT NULL,
+ password VARCHAR(30) NOT NULL
+);
+INSERT INTO stack (`id`, `username`, `password`) VALUES (1, 'Foo', 'hiddenGem');
+INSERT INTO stack (`id`, `username`, `password`) VALUES (2, 'Baa', 'verySecret');
+Insert into stack values (3, 'thaa','shanu');
+insert into stack values (4, 'baby','gayu');
+SELECT * FROM stack;
+  
+  SELECT username AS val FROM stack;
+SELECT username val FROM stack;
+
+SELECT *
+ FROM customer
+ ORDER BY customer_Id
+ LIMIT 3;
+ 
+ SELECT *
+ FROM customer
+ ORDER BY customer_Id
+ LIMIT 2,1;
+ 
+ SELECT * FROM stack WHERE id >= 2 and id <= 5
+ SELECT * FROM stack WHERE id BETWEEN 2 and 5;
+ 
+ SELECT * FROM stack WHERE id NOT BETWEEN 2 and 5;
+ SELECT * FROM stack WHERE username = "admin" AND password = "admin";
+ 
+  CREATE DATABASE Baseball; 
+  DROP DATABASE IF EXISTS Baseball;
+  
+  CREATE DATABASE Baseball CHARACTER SET utf8 COLLATE utf8_general_ci;
+SHOW CREATE DATABASE Baseball;
+SHOW DATABASES;
+SELECT @@character_set_database as cset,@@collation_database as col;
+
+CREATE USER 'John456'@'%' IDENTIFIED BY 'somePassword';
+
+SELECT user,host,password from mysql.user where user in ('John123','John456');
+
+ CREATE TABLE team_person AS SELECT 'A' team, 'John' person
+UNION ALL SELECT 'B' team, 'Smith' person
+UNION ALL SELECT 'A' team, 'Walter' person
+UNION ALL SELECT 'A' team, 'Louis' person
+UNION ALL SELECT 'C' team, 'Elizabeth' person
+UNION ALL SELECT 'B' team, 'Wayne' person;
+
+  select * from team_person;
+  
+  CREATE TABLE iodku (
+ id INT AUTO_INCREMENT NOT NULL,
+ name VARCHAR(99) NOT NULL,
+ misc INT NOT NULL,
+ PRIMARY KEY(id),
+ UNIQUE(name)
+) ENGINE=InnoDB;
+
+INSERT INTO iodku (name, misc)
+ VALUES
+ ('Leslie', 123),
+ ('Sally', 456);
+('babu', 234);
+('sony',123);
+
+CREATE TABLE Burn (
+ id SMALLINT UNSIGNED AUTO_INCREMENT NOT NULL,
+ name VARCHAR(99) NOT NULL,
+ PRIMARY KEY(id),
+ UNIQUE(name)
+ ) ENGINE=InnoDB;
+INSERT IGNORE INTO Burn (name) VALUES ('first'), ('second');
+SELECT LAST_INSERT_ID(); -- 1
+SELECT * FROM Burn ORDER BY id;
+CREATE TABLE Burn (
+ id SMALLINT UNSIGNED AUTO_INCREMENT NOT NULL,
+ name VARCHAR(99) NOT NULL,
+ PRIMARY KEY(id),
+ UNIQUE(name)
+ ) ENGINE=InnoDB;
+INSERT IGNORE INTO Burn (name) VALUES ('first'), ('second');
+SELECT LAST_INSERT_ID(); -- 1
+SELECT * FROM Burn ORDER BY id;
+CREATE TABLE Burn (
+ id SMALLINT UNSIGNED AUTO_INCREMENT NOT NULL,
+ name VARCHAR(99) NOT NULL,
+ PRIMARY KEY(id),
+ UNIQUE(name)
+ ) ENGINE=InnoDB;
+INSERT IGNORE INTO Burn (name) VALUES ('first'), ('second');
+SELECT LAST_INSERT_ID(); -- 1
+SELECT * FROM Burn ORDER BY id;
+INSERT IGNORE INTO Burn (name) VALUES ('second'); 
+SELECT LAST_INSERT_ID(); 
+SELECT * FROM Burn ORDER BY id;
+
+INSERT IGNORE INTO Burn (name) VALUES ('third');
+SELECT LAST_INSERT_ID(); -- now "4"
+SELECT * FROM Burn ORDER BY id; 
+
+create table people
+( id int primary key,
+ name varchar(100) not null,
+ gender char(1) not null
+);
+insert people (id,name,gender) values
+(1,'Kathy','f'),(2,'John','m'),(3,'Paul','m'),(4,'Kim','f');
+create table pets
+( id int auto_increment primary key,
+ ownerId int not null,
+ name varchar(100) not null,
+ color varchar(100) not null
+);
+insert pets(ownerId,name,color) values
+(1,'Rover','beige'),(2,'Bubbles','purple'),(3,'Spot','black and white'),
+(1,'Rover2','white');
+select *from pets;
+select *from people;
+ DELETE FROM people
+WHERE name = 'Paul';
